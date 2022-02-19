@@ -1,0 +1,31 @@
+plugins {
+    id 'java'
+}
+
+group 'de.theparsecjan'
+version '0.1-SNAPSHOT'
+
+repositories {
+    mavenCentral()
+    maven {url= "https://papermc.io/repo/repository/maven-public/"}
+}
+
+dependencies {
+    implementation 'org.projectlombok:lombok:1.18.18'
+
+    // https://mvnrepository.com/artifact/io.github.classgraph/classgraph
+    implementation 'io.github.classgraph:classgraph:4.8.138'
+
+    compileOnly("io.papermc.paper:paper-api:1.18.1-R0.1-SNAPSHOT")
+
+    testImplementation 'org.junit.jupiter:junit-jupiter-api:5.7.0'
+    testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.7.0'
+}
+
+java {
+    toolchain.languageVersion.set(JavaLanguageVersion.of(17))
+}
+
+test {
+    useJUnitPlatform()
+}
